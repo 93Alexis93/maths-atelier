@@ -1,29 +1,41 @@
 # Maths Atelier
 
-Prototype **v0.1** d'un assistant pédagogique pour les professeurs de mathématiques.
+Assistant pédagogique pour professeurs de mathématiques — prototype local.
 
-## Essayer
-Ouvrir `index.html` dans un navigateur moderne (ordinateur ou mobile). Aucune installation ni serveur requis. L'application n'est pas encore déployée sur une adresse publique.
+## Versions
 
-## Fonctions disponibles
-- Créer des fiches par niveau, chapitre et type (cours, exercice, évaluation, corrigé).
-- Joindre un PDF ou une image et le consulter **pendant la session courante uniquement**.
-- Rechercher et filtrer les fiches.
-- Sauvegarder les métadonnées localement dans le navigateur ; exporter/importer les fiches au format JSON.
-- Générer et imprimer un **modèle de contrôle 3e Thalès / calcul littéral** (50 minutes par défaut, sujets A/B, corrigés). Utiliser l'impression du navigateur pour enregistrer un PDF.
+- `index.html` : prototype v0.1 (démonstration).
+- **`atelier.html` : prototype v0.2** (version de travail).
 
-## Limites importantes
-- **Aucune extraction automatique** du texte, des schémas ou des exercices des PDF/images.
-- Les pièces jointes ne sont **pas sauvegardées** dans le stockage local et ne figurent pas dans l'export JSON ; il faut les resélectionner après rechargement.
-- Le générateur utilise des exercices de démonstration prédéfinis et **ne réutilise pas encore** la bibliothèque.
-- La mise en page imprimée est expérimentale : le format strict « 1 sujet = 1 recto-verso » et les fractions horizontales restent à implémenter.
-- Aucune synchronisation entre appareils ; ne pas y déposer de données personnelles d'élèves.
+Ouvrir `atelier.html` dans un navigateur, via un serveur local ou en téléchargeant le fichier. La consultation du code sur GitHub n'exécute pas l'application. Aucun hébergement public n'est configuré.
 
-## Suite du développement
-1. Persistance fiable des fichiers, avec consentement et stockage adapté.
-2. Extraction PDF/image avec prévisualisation et validation manuelle des exercices.
-3. Banque d'exercices structurée et sélection pour les évaluations.
-4. Générateur A/B avec barème, contraintes de pagination et corrigés.
-5. Tests automatisés et déploiement d'une interface accessible sur mobile.
+## Fonctionnalités v0.2
 
-Projet privé — premières bases techniques.
+- Banque de ressources par niveau, chapitre et type.
+- Énoncé, corrigé et barème saisis par le professeur.
+- Import de PDF ou d'images avec **conservation locale dans IndexedDB** (15 Mo par fichier).
+- Recherche, filtres, sélection d'exercices.
+- Impression de contrôles A ou A/B et corrigés ; avertissement si le barème diffère de 20.
+- Export/import JSON des fiches **sans les pièces jointes**.
+
+## Limites à connaître
+
+- Les PDF/images sont stockés et consultables, **mais leur contenu n'est pas lu, converti ni inséré dans le contrôle**.
+- A et B sont actuellement identiques ; pas encore de variantes distinctes.
+- Les exercices sont imprimés à partir des énoncés saisis ; un document joint sans énoncé n'est pas imprimé.
+- La mise en page A4 n'assure pas encore un recto-verso strict, ni le rendu mathématique avancé.
+- Les données restent dans le navigateur de l'appareil : pas de compte, pas de synchronisation, risque de perte en cas d'effacement des données du navigateur. Faire des exports réguliers.
+- Aucun traitement de données personnelles d'élèves.
+- Prototype non testé de bout en bout sur iPhone ou en navigateur réel.
+
+## Feuille de route
+
+1. Import complet des documents avec sauvegarde/restauration des pièces jointes.
+2. Extraction PDF/image, reconnaissance des formules et schémas, validation humaine.
+3. Variantes A/B réellement différentes, équilibrage du barème et de la difficulté.
+4. Génération PDF avec fractions horizontales, pagination A4 recto-verso et corrigé séparé.
+5. Tests automatisés, déploiement sécurisé et éventuellement synchronisation.
+
+## Cahier des charges pédagogique
+
+Priorité aux fondamentaux, au raisonnement et à l'autonomie ; exercices issus des documents fournis par le professeur ; niveau de rigueur adapté. Évaluations avec espaces de réponse suffisants, note/commentaire, pointillés foncés et corrigés à la fin.
