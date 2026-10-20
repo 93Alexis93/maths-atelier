@@ -39,3 +39,11 @@ Ouvrir `atelier.html` dans un navigateur, via un serveur local ou en télécharg
 ## Cahier des charges pédagogique
 
 Priorité aux fondamentaux, au raisonnement et à l'autonomie ; exercices issus des documents fournis par le professeur ; niveau de rigueur adapté. Évaluations avec espaces de réponse suffisants, note/commentaire, pointillés foncés et corrigés à la fin.
+
+## Tests navigateur automatisés
+
+Le dépôt contient désormais des tests Playwright pour Chromium (`npm install`, `npx playwright install chromium`, `npm test`) et un workflow GitHub Actions déclenché à chaque push. Ces tests vérifient l'enregistrement et la persistance, la sélection, les variantes A/B, les corrigés et le blocage des variantes incomplètes. **Leur exécution n'a pas encore été confirmée.**
+
+## Utilisation sur iPhone
+
+Le dépôt privé n'est pas un site déployé. Pour un accès via une URL mobile, configurer un hébergement compatible (GitHub Pages selon les possibilités du compte, ou hébergement externe). Ne pas rendre le dépôt public sans accord explicite.
